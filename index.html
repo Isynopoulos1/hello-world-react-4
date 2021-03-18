@@ -1,0 +1,65 @@
+<!-- INSERT BOILER PLATE CODE -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- REACT LIBRARY -->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- REACT DOM LIBRARY -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- BABEL LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>Boiler Plate Code</title>
+  </head>
+  <body>
+    <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT  -->
+    <div id="app">React has not rendered yet</div>
+
+    <!-- JAVASCRIPT -->
+    <script type="text/babel">
+      //CREATE FAMILY LIST COMPONENT
+      // function FamilyList(props) {
+      //   //assign props.sibligs to siblings variable to clean up code (optional)
+      //   var siblings = props.siblings;
+      //   //use map method on siblings array to create new array full of JSX code
+      //   var siblingsListItem = siblings.map(function(person) {
+      //     return <div key={person.id}>{person.name}</div>;
+      //   });
+      //   return <div>{siblingsListItem}</div>;
+      // }
+
+      //ALTERNATIVE  FamilyList component
+
+      const FamilyList = ({ familia }) => {
+        return (
+          <div>
+            {familia.map((membros, i) => {
+              console.log(membros);
+              return (
+                <div key={i}>
+                  {membros.name} - {membros.type}
+                </div>
+              );
+            })}
+          </div>
+        );
+      };
+
+      //ARRAY OF OBJECTS - 3 PROPERTIES (ID, NAME AND FEMALE ) 3 VALUES (NUMBER STRING AND BOOLEAN)
+      var familia = [
+        { name: "Doudou", type: "PERO" },
+        { name: "Miaouricio", type: "GATO" },
+        { name: "Benito", type: "PERO" },
+        { name: "Isela", type: "HUMAN" },
+        { name: "Erwan", type: "HUMAN" }
+      ];
+
+      ReactDOM.render(
+        <FamilyList familia={familia} />,
+        document.getElementById("app")
+      );
+    </script>
+  </body>
+</html>
